@@ -51,7 +51,7 @@ void SpecificWorker::compute()
   const float threshold = 420; //millimeters
     float rot = 0.6;  //rads per second
 
-    try
+   /* try
     {
         RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data 
         std::sort( ldata.begin()+10, ldata.end()-10, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
@@ -60,7 +60,8 @@ void SpecificWorker::compute()
     {
       
       
-        std::cout << ldata[10].dist << std::endl;
+      
+       std::cout << ldata[10].dist << std::endl;
         
 	if(ldata[10].angle>0){
 	  differentialrobot_proxy->setSpeedBase(10, -rot);
@@ -68,8 +69,13 @@ void SpecificWorker::compute()
 	}else {
 	  differentialrobot_proxy->setSpeedBase(10, rot);
           usleep(rand()%(1500000-100000 + 1) + 100000);  //random wait between 1.5s and 0.1sec
-	}
+	  
+	  if(target.active){
 	
+	    qDebug() << "Activo" ;
+	  }
+	}
+
     }
     else
     {
@@ -79,18 +85,29 @@ void SpecificWorker::compute()
     catch(const Ice::Exception &ex)
     {
         std::cout << ex << std::endl;
-    }
-// 	try
-// 	{
-// 		camera_proxy->getYImage(0,img, cState, bState);
-// 		memcpy(image_gray.data, &img[0], m_width*m_height*sizeof(uchar));
-// 		searchTags(image_gray);
-// 	}
-// 	catch(const Ice::Exception &e)
-// 	{
-// 		std::cout << "Error reading from Camera" << e << std::endl;
-// 	}
+    }*/
+   if(target.active)
+	 qDebug() << "Activo" ;
+
 }
+
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+
+void SpecificWorker::setPick(const Pick& myPick)
+{
+
+  
+   qDebug() << myPick.x <<":"<< myPick.z ;
+   target.copy(myPick.x,myPick.z);
+   target.setActive(true);
+  
+}
+
+
+
 
 
 
