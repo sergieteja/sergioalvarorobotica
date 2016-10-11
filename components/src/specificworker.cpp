@@ -86,32 +86,39 @@ void SpecificWorker::compute()
     {
         std::cout << ex << std::endl;
     }*/
-   if(target.active)
-	 qDebug() << "Activo" ;
+   
+   
+   
+   
+   RoboCompDifferentialRobot::TBaseState bState;
+   differentialrobot_proxy->getBaseState( bState);
+   
+   
+   
+   qDebug() <<"Coor X"<< bState.x <<"- Coor y"<< bState.z<< "- alfa"<< bState.alpha ;
+   
+   if(target.active){
+	qDebug() <<"Nos movemos a -->"<< target.pose[0] <<":"<<target.pose[1];
+	
+	differentialrobot_proxy->setSpeedBase(10, -rot);
+        usleep(rand()%(1500000-100000 + 1) + 100000);  //random wait between 1.5s and 0.1sec
+	differentialrobot_proxy->setSpeedBase(400, 0); 
+	
+	
+	
+   }
+//    
+   
 
 }
 
 
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
-
 
 void SpecificWorker::setPick(const Pick& myPick)
-{
-
-  
+{ 
    qDebug() << myPick.x <<":"<< myPick.z ;
    target.copy(myPick.x,myPick.z);
-   target.setActive(true);
-  
+   target.setActive(true); 
 }
-
-
-
-
-
-
-
-
-
-
