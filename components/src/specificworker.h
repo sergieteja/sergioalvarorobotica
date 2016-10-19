@@ -35,6 +35,10 @@
 #include <innermodel/innermodel.h>
 #include <qmat/QMatAll>
 
+
+
+
+
 class SpecificWorker : public GenericWorker
 {
 Q_OBJECT
@@ -59,11 +63,21 @@ struct Target{
   }
 };
 
+
+
+//Estructura de la maquina de estaddos.
+enum class State {INIT,GOTO,BUG,STOP};
+State estado = State::INIT;
+
+
 public:
 	SpecificWorker(MapPrx& mprx);	
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
 	void setPick(const Pick &myPick);
+	void irA();
+	void bug();
+	void stop();
 
 
 public slots:

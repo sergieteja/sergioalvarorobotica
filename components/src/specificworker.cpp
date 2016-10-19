@@ -45,8 +45,45 @@ void SpecificWorker::compute()
 {
     const float threshold = 420; //millimeters
     float rot = 0.6;  //rads per second
-
     
+    
+    try
+    {
+        RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data 
+        std::sort( ldata.begin()+20, ldata.end()-20, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
+    
+    
+	switch (estado){
+	    
+	  case State::INIT:
+	    
+	    estado = State::GOTO;
+	    
+	    break;
+	    
+	  case State::GOTO:
+	    
+	    
+	    
+	    break;
+	    
+	  case State::BUG:
+	    
+	    SpecificWorker::bug();
+	    
+	    break;
+
+	  case State::STOP:
+	    
+	    SpecificWorker::stop();
+	    
+	    break;
+	}
+    }catch(const Ice::Exception &ex)
+    {
+        std::cout << ex << std::endl;
+    }
+      
     //Movimiento del robot
     try
     {
@@ -65,7 +102,7 @@ void SpecificWorker::compute()
       }
     
 
-  } catch(const Ice::Exception &ex)
+  }catch(const Ice::Exception &ex)
     {
         std::cout << ex << std::endl;
     }
@@ -92,10 +129,28 @@ void SpecificWorker::compute()
 	
    }
 //    
-   
 
 }
 
+
+void SpecificWorker::irA()
+{
+  
+  
+  
+}
+
+
+void SpecificWorker::bug()
+{
+
+}
+
+void SpecificWorker::stop()
+{
+ 
+  
+}
 
 
 
