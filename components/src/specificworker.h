@@ -22,12 +22,6 @@
        @author authorname
 */
 
-
-
-
-
-
-
 #ifndef SPECIFICWORKER_H
 #define SPECIFICWORKER_H
 
@@ -35,7 +29,7 @@
 #include <innermodel/innermodel.h>
 #include <qmat/QMatAll>
 
-
+#include <complex>
 
 
 
@@ -66,25 +60,26 @@ struct Target{
 
 
 //Estructura de la maquina de estaddos.
+;
 enum class State {INIT,GOTO,BUG,STOP};
 State estado = State::INIT;
 
-
 public:
+	
 	SpecificWorker(MapPrx& mprx);	
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
 	void setPick(const Pick &myPick);
-	void irA();
-	void bug();
+	void gotoTarget(RoboCompLaser::TLaserData ldata);
+	bool obstacle(RoboCompLaser::TLaserData ldata);
 	void stop();
-
 
 public slots:
 	void compute(); 	
 
 private:
   Target target;
+  InnerModel *innermodel;
 	
 };
 
