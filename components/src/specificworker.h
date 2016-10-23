@@ -57,11 +57,11 @@ struct Target{
   }
 };
 
-
+// 
 
 //Estructura de la maquina de estaddos.
 ;
-enum class State {INIT,GOTO,BUG,STOP};
+enum class State {INIT,GOTO,BUG,STOP, IDLE};
 State estado = State::INIT;
 
 public:
@@ -72,6 +72,8 @@ public:
 	void setPick(const Pick &myPick);
 	void gotoTarget(RoboCompLaser::TLaserData ldata);
 	bool obstacle(RoboCompLaser::TLaserData ldata);
+	void bug(RoboCompLaser::TLaserData ldata);
+	bool targetAtSight();
 	void stop();
 
 public slots:

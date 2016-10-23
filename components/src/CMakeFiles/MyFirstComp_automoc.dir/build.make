@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/salabeta/robocomp/components/sergioalvarorobotica/components
+CMAKE_SOURCE_DIR = /home/sergio/robocomp/components/sergioalvarorobotica/components
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/salabeta/robocomp/components/sergioalvarorobotica/components
+CMAKE_BINARY_DIR = /home/sergio/robocomp/components/sergioalvarorobotica/components
 
 # Utility rule file for MyFirstComp_automoc.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/salabeta/robocomp/components/sergioalvarorobotica/compo
 include src/CMakeFiles/MyFirstComp_automoc.dir/progress.make
 
 src/CMakeFiles/MyFirstComp_automoc:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/salabeta/robocomp/components/sergioalvarorobotica/components/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic moc for target MyFirstComp"
-	cd /home/salabeta/robocomp/components/sergioalvarorobotica/components/src && /usr/bin/cmake -E cmake_autogen /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp_automoc.dir/ ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sergio/robocomp/components/sergioalvarorobotica/components/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic moc for target MyFirstComp"
+	cd /home/sergio/robocomp/components/sergioalvarorobotica/components/src && /usr/bin/cmake -E cmake_autogen /home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp_automoc.dir/ ""
 
 MyFirstComp_automoc: src/CMakeFiles/MyFirstComp_automoc
 MyFirstComp_automoc: src/CMakeFiles/MyFirstComp_automoc.dir/build.make
@@ -68,10 +68,10 @@ src/CMakeFiles/MyFirstComp_automoc.dir/build: MyFirstComp_automoc
 .PHONY : src/CMakeFiles/MyFirstComp_automoc.dir/build
 
 src/CMakeFiles/MyFirstComp_automoc.dir/clean:
-	cd /home/salabeta/robocomp/components/sergioalvarorobotica/components/src && $(CMAKE_COMMAND) -P CMakeFiles/MyFirstComp_automoc.dir/cmake_clean.cmake
+	cd /home/sergio/robocomp/components/sergioalvarorobotica/components/src && $(CMAKE_COMMAND) -P CMakeFiles/MyFirstComp_automoc.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/MyFirstComp_automoc.dir/clean
 
 src/CMakeFiles/MyFirstComp_automoc.dir/depend:
-	cd /home/salabeta/robocomp/components/sergioalvarorobotica/components && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/salabeta/robocomp/components/sergioalvarorobotica/components /home/salabeta/robocomp/components/sergioalvarorobotica/components/src /home/salabeta/robocomp/components/sergioalvarorobotica/components /home/salabeta/robocomp/components/sergioalvarorobotica/components/src /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp_automoc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sergio/robocomp/components/sergioalvarorobotica/components && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sergio/robocomp/components/sergioalvarorobotica/components /home/sergio/robocomp/components/sergioalvarorobotica/components/src /home/sergio/robocomp/components/sergioalvarorobotica/components /home/sergio/robocomp/components/sergioalvarorobotica/components/src /home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp_automoc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/MyFirstComp_automoc.dir/depend
 

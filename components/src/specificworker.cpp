@@ -46,11 +46,14 @@ void SpecificWorker::compute()
 {  
     try
     {
+	RoboCompDifferentialRobot::TBaseState bState;
+	differentialrobot_proxy->getBaseState(bState);
         RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data 
+	//innermodel->setUpdateTransformPointers("base", bState.x,0,bState.z ,bState.alpha,0);
         //std::sort( ldata.begin()+20, ldata.end()-20, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
-		RoboCompDifferentialRobot::TBaseState bState;
-		differentialrobot_proxy->getBaseState(bState);
-    
+	
+	
+   
 		switch (estado)
 		{
 	    
@@ -66,7 +69,9 @@ void SpecificWorker::compute()
 		
 			
 			case State::BUG:
-				
+				  
+			      bug(ldata);
+			      
 				break;
 
 			case State::STOP:
@@ -88,27 +93,31 @@ void SpecificWorker::compute()
 
 void SpecificWorker::gotoTarget(RoboCompLaser::TLaserData ldata)
 {
+	
+ 	
+	//comprobar si hay obstaculo
+	if( obstacle(ldata)){
+		
+		estado = State::BUG;
+	}
+	
 	QVec tr = innermodel->transform("base", target.getPose(), "world");
 	float ang = atan2(tr.x(), tr.z());
 	float dist = tr.norm2();
- 	
+	
 	if( dist < 50) 
 	{
 		//estado = State::IDLE;
-		target.setActive(false);
+		target.setActive(true);
 		differentialrobot_proxy->stopBase();
 		return;
 	}
  
  
- 	//comprobar si hay obstaculo
- 	if( obstacle(ldata)){
-		
-		estado = State::BUG;
-	}
+ 	
+ 	
     //std::sort( ldata.begin()+20, ldata.end()-20, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
 	
- 
 	//controlador
 	float vadv = dist;
 	float vrot= ang;
@@ -117,7 +126,22 @@ void SpecificWorker::gotoTarget(RoboCompLaser::TLaserData ldata)
 	differentialrobot_proxy->setSpeedBase(vadv,vrot);
 }
 
-//Falta probar
+
+
+
+void SpecificWorker::bug(RoboCompLaser::TLaserData ldata)
+{
+
+  
+  
+}
+
+
+bool SpecificWorker::targetAtSight()
+
+{
+ return true;
+}
 
 /**
 void SpecificWorker::irA(RoboCompLaser::TLaserData ldata)
@@ -152,10 +176,10 @@ bool SpecificWorker::obstacle(RoboCompLaser::TLaserData ldata)
 void SpecificWorker::stop()
 {
  
-  
+  qDebug("Parado");
+  differentialrobot_proxy->setSpeedBase(0,0); 
+  estado=State::IDLE;
 }
-
-
 
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////

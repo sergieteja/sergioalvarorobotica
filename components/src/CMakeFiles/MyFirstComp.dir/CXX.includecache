@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/salabeta/robocomp/classes/qlog/qlog.cpp
+/home/sergio/robocomp/classes/qlog/qlog.cpp
 qlog.h
-/home/salabeta/robocomp/classes/qlog/qlog.h
+/home/sergio/robocomp/classes/qlog/qlog.h
 
-/home/salabeta/robocomp/classes/qlog/qlog.h
+/home/sergio/robocomp/classes/qlog/qlog.h
 config.h
-/home/salabeta/robocomp/classes/qlog/config.h
+/home/sergio/robocomp/classes/qlog/config.h
 QtCore
 -
 iostream
@@ -20,11 +20,11 @@ iostream
 Logger.h
 -
 
-/home/salabeta/robocomp/classes/rapplication/rapplication.cpp
+/home/sergio/robocomp/classes/rapplication/rapplication.cpp
 rapplication.h
-/home/salabeta/robocomp/classes/rapplication/rapplication.h
+/home/sergio/robocomp/classes/rapplication/rapplication.h
 
-/home/salabeta/robocomp/classes/rapplication/rapplication.h
+/home/sergio/robocomp/classes/rapplication/rapplication.h
 Ice/Ice.h
 -
 Ice/Application.h
@@ -34,7 +34,7 @@ IceUtil/IceUtil.h
 QtCore
 -
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CommonBehavior.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CommonBehavior.cpp
 CommonBehavior.h
 -
 Ice/LocalException.h
@@ -48,7 +48,7 @@ Ice/Object.h
 IceUtil/Iterator.h
 -
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/DifferentialRobot.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/DifferentialRobot.cpp
 DifferentialRobot.h
 -
 Ice/LocalException.h
@@ -62,7 +62,7 @@ Ice/Object.h
 IceUtil/Iterator.h
 -
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/Laser.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/Laser.cpp
 Laser.h
 -
 Ice/LocalException.h
@@ -76,21 +76,21 @@ Ice/Object.h
 IceUtil/Iterator.h
 -
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/MyFirstComp_automoc.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/MyFirstComp_automoc.cpp
 moc_commonbehaviorI.cpp
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_commonbehaviorI.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_commonbehaviorI.cpp
 moc_genericmonitor.cpp
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_genericmonitor.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_genericmonitor.cpp
 moc_genericworker.cpp
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_genericworker.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_genericworker.cpp
 moc_rcismousepickerI.cpp
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_rcismousepickerI.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_rcismousepickerI.cpp
 moc_specificmonitor.cpp
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_specificmonitor.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_specificmonitor.cpp
 moc_specificworker.cpp
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_specificworker.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_specificworker.cpp
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/RCISMousePicker.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/RCISMousePicker.cpp
 RCISMousePicker.h
 -
 Ice/LocalException.h
@@ -104,11 +104,11 @@ Ice/Object.h
 IceUtil/Iterator.h
 -
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.cpp
 commonbehaviorI.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.h
 QtCore/QObject
 -
 Ice/Ice.h
@@ -118,37 +118,37 @@ CommonBehavior.h
 config.h
 -
 genericworker.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
 genericmonitor.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/config.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/config.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.cpp
 genericmonitor.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
 Ice/Ice.h
 -
 QtCore
 -
 genericworker.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
 config.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/config.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/config.h
 qlog/qlog.h
 -
 CommonBehavior.h
 -
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericworker.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericworker.cpp
 genericworker.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
 config.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/config.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/config.h
 QtGui
 -
 stdint.h
@@ -166,7 +166,7 @@ RCISMousePicker.h
 DifferentialRobot.h
 -
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/main.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/main.cpp
 signal.h
 -
 QtCore
@@ -184,17 +184,17 @@ rapplication/rapplication.h
 qlog/qlog.h
 -
 config.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/config.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/config.h
 genericmonitor.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
 genericworker.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
 specificworker.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificworker.h
 specificmonitor.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.h
 commonbehaviorI.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.h
 rcismousepickerI.h
 -
 DifferentialRobot.h
@@ -204,35 +204,35 @@ Laser.h
 RCISMousePicker.h
 -
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_commonbehaviorI.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_commonbehaviorI.cpp
 commonbehaviorI.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_genericmonitor.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_genericmonitor.cpp
 genericmonitor.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_genericworker.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_genericworker.cpp
 genericworker.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_rcismousepickerI.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_rcismousepickerI.cpp
 rcismousepickerI.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/rcismousepickerI.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/rcismousepickerI.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_specificmonitor.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_specificmonitor.cpp
 specificmonitor.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/moc_specificworker.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/moc_specificworker.cpp
 specificworker.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificworker.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/rcismousepickerI.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/rcismousepickerI.cpp
 rcismousepickerI.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/rcismousepickerI.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/rcismousepickerI.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/rcismousepickerI.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/rcismousepickerI.h
 QtCore/QObject
 -
 Ice/Ice.h
@@ -242,21 +242,21 @@ RCISMousePicker.h
 config.h
 -
 genericworker.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericworker.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.cpp
 specificmonitor.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.h
 genericmonitor.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificworker.cpp
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificworker.cpp
 specificworker.h
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificworker.h
 
-/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificworker.h
+/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificworker.h
 genericworker.h
 -
 innermodel/innermodel.h
