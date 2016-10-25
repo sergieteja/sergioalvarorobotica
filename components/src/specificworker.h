@@ -73,7 +73,7 @@ public:
 	void gotoTarget(RoboCompLaser::TLaserData ldata);
 	bool obstacle(RoboCompLaser::TLaserData ldata);
 	void bug(RoboCompLaser::TLaserData ldata);
-	bool targetAtSight();
+	bool targetAtSight(RoboCompLaser::TLaserData ldata);
 	void stop();
 
 public slots:

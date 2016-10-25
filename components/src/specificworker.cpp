@@ -65,6 +65,7 @@ void SpecificWorker::compute()
 				
 			case State::GOTO:	
 				gotoTarget(ldata);
+				
 				break;
 		
 			
@@ -76,7 +77,7 @@ void SpecificWorker::compute()
 
 			case State::STOP:
 				
-				SpecificWorker::stop();
+				stop();
 				
 				break;
 		}
@@ -131,16 +132,36 @@ void SpecificWorker::gotoTarget(RoboCompLaser::TLaserData ldata)
 
 void SpecificWorker::bug(RoboCompLaser::TLaserData ldata)
 {
-
-  
-  
+	
+	float rot;
+	
+		if(targetAtSight()){
+			estado  =  State::GOTO;
+			return;
+		}
+		float d = ldata[10].dist;
+		if (d>160){
+				rot=-0.2;
+		}
+		
+		
+		
 }
 
 
-bool SpecificWorker::targetAtSight()
+bool SpecificWorker::targetAtSight(RoboCompLaser::TLaserData ldata)
 
 {
- return true;
+	QPolygon polygon;
+	
+	for (auto l: ldata)
+	{
+		QVec lr = innermodel->laserTo("world", "laser", l.dist, l.angle);
+		polygon << QPointF(lr.x(), lr.z());
+	}
+	
+	QVec t = target.getPose();
+	return  polygon.containsPoint(QPointF(t.x(),t.z()), Qt::OddEvenFill);	
 }
 
 /**

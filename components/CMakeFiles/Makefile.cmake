@@ -7,8 +7,8 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/sergio/robocomp/cmake/modules/ipp.cmake"
-  "/home/sergio/robocomp/cmake/robocomp.cmake"
+  "/home/salabeta/robocomp/cmake/modules/ipp.cmake"
+  "/home/salabeta/robocomp/cmake/robocomp.cmake"
   "CMakeFiles/3.5.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeSystem.cmake"

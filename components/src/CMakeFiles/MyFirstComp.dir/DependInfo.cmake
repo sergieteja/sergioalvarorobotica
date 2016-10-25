@@ -4,20 +4,20 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CommonBehavior.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/CommonBehavior.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/DifferentialRobot.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/DifferentialRobot.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/Laser.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/Laser.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/MyFirstComp_automoc.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/MyFirstComp_automoc.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/RCISMousePicker.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/RCISMousePicker.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/commonbehaviorI.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/genericmonitor.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/genericworker.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/genericworker.cpp.o"
-  "/home/sergio/robocomp/classes/qlog/qlog.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/home/sergio/robocomp/classes/qlog/qlog.cpp.o"
-  "/home/sergio/robocomp/classes/rapplication/rapplication.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/home/sergio/robocomp/classes/rapplication/rapplication.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/main.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/main.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/rcismousepickerI.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/rcismousepickerI.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/specificmonitor.cpp.o"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/specificworker.cpp" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/specificworker.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CommonBehavior.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/CommonBehavior.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/DifferentialRobot.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/DifferentialRobot.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/Laser.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/Laser.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/MyFirstComp_automoc.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/MyFirstComp_automoc.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/RCISMousePicker.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/RCISMousePicker.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/commonbehaviorI.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/genericmonitor.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericworker.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/genericworker.cpp.o"
+  "/home/salabeta/robocomp/classes/qlog/qlog.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o"
+  "/home/salabeta/robocomp/classes/rapplication/rapplication.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/main.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/main.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/rcismousepickerI.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/rcismousepickerI.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificmonitor.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/specificmonitor.cpp.o"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificworker.cpp" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CMakeFiles/MyFirstComp.dir/specificworker.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -43,18 +43,18 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/robocomp/include"
   "/classes"
   "."
-  "/home/sergio/robocomp/classes"
-  "/home/sergio/robocomp/libs"
-  "/home/sergio/robocomp/interfaces"
+  "/home/salabeta/robocomp/classes"
+  "/home/salabeta/robocomp/libs"
+  "/home/salabeta/robocomp/interfaces"
   "/include"
   )
 
 # Pairs of files generated by the same build rule.
 set(CMAKE_MULTIPLE_OUTPUT_PAIRS
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CommonBehavior.h" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/CommonBehavior.cpp"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/DifferentialRobot.h" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/DifferentialRobot.cpp"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/Laser.h" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/Laser.cpp"
-  "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/RCISMousePicker.h" "/home/sergio/robocomp/components/sergioalvarorobotica/components/src/RCISMousePicker.cpp"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CommonBehavior.h" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CommonBehavior.cpp"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/DifferentialRobot.h" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/DifferentialRobot.cpp"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/Laser.h" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/Laser.cpp"
+  "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/RCISMousePicker.h" "/home/salabeta/robocomp/components/sergioalvarorobotica/components/src/RCISMousePicker.cpp"
   )
 
 
