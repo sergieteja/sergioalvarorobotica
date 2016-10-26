@@ -40,7 +40,7 @@ Q_OBJECT
 struct Target{
   bool active =false;
   mutable QMutex m;
-  QVec pose;
+  QVec pose = QVec::zeros(3);
   void setActive(bool v){
     QMutexLocker ml(&m);
     active=v;
@@ -49,7 +49,8 @@ struct Target{
   void copy(float x, float z){
     QMutexLocker ml(&m);
     pose[0]=x;
-    pose[1]=z;    
+	pose[1]=0;
+    pose[2]=z;    
   }
   QVec getPose(){
     QMutexLocker ml(&m);
