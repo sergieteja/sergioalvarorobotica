@@ -19,7 +19,7 @@
 
 /**
        \brief
-       @author authorname
+       @author Sergio y Alvaro
 */
 
 #ifndef SPECIFICWORKER_H
@@ -62,7 +62,7 @@ struct Target{
 
 //Estructura de la maquina de estaddos.
 ;
-enum class State {INIT,GOTO,BUG,STOP, IDLE};
+enum class State {INIT,GOTO,BUG,STOP, IDLE, INITBUG};
 State estado = State::INIT;
 
 public:
@@ -74,7 +74,9 @@ public:
 	void gotoTarget(RoboCompLaser::TLaserData ldata);
 	bool obstacle(RoboCompLaser::TLaserData ldata);
 	void bug(RoboCompLaser::TLaserData ldata);
-	bool targetAtSight(RoboCompLaser::TLaserData ldata);
+	void initbug(const RoboCompLaser::TLaserData& ldata);
+	bool targetAtSight(const RoboCompLaser::TLaserData& ldata);
+	
 	void stop();
 
 public slots:

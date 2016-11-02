@@ -52,7 +52,6 @@ void SpecificWorker::compute()
 	innermodel->updateTransformValues("base", bState.x,0,bState.z,0 ,bState.alpha,0);
     //std::sort( ldata.begin()+20, ldata.end()-20, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
 	
-	
    
 		switch (estado)
 		{
@@ -78,6 +77,10 @@ void SpecificWorker::compute()
 			      bug(ldata);
 			      
 				break;
+			case State::INITBUG:	
+				initbug(ldata);
+				
+				break;
 
 			case State::STOP:
 				
@@ -102,8 +105,8 @@ void SpecificWorker::gotoTarget(RoboCompLaser::TLaserData ldata)
 	
 	//comprobar si hay obstaculo
 	if( obstacle(ldata)){
-		estado = State::BUG;
-		qDebug()<<"Hay obstaculo -- BUG";
+		estado = State::INITBUG;
+		qDebug()<<"Hay obstaculo -- INITBUG";
 	}
 	
 	QVec tr = innermodel->transform("base", target.getPose(), "world");
@@ -124,7 +127,12 @@ void SpecificWorker::gotoTarget(RoboCompLaser::TLaserData ldata)
 	
 	//controlador
 	float vadv = dist;
-	float vrot= ang;
+	
+	if(vadv >300){
+		vadv = 300;
+	}
+	
+	float vrot= ang*0.3;
 	if( fabs(vrot) > 0.05){
 		vadv = 0;
 	}
@@ -142,18 +150,39 @@ void SpecificWorker::bug(RoboCompLaser::TLaserData ldata)
 	float vrot;
 	float alfa = log(0.1)/log(0.2);
 	
-		//if(targetAtSight(ldata)){
-		//	estado  =  State::GOTO;
-		//	return;
-		//}
-	
-		float d = ldata[10].dist;
+		if(targetAtSight(ldata)){
+			estado  =  State::GOTO;
+			return;
+		}
+		
+		if( obstacle(ldata))
+		{
+			estado = State::INITBUG;
+			qDebug()<<"Hay obstaculo -- INITBUG";
+			return;
+			
+		}
+		
+		float d = -9999;
+		for(int i=10; i<15; i++)
+			if(ldata[i].dist > d)
+				d = ldata[i].dist;
+		
+		//float d = ldata[15].dist; 
 		if (d>160)
 		{
-			vrot = (d * 1./1000 )- 0.5;
+			vrot = (d * 1./500 )- 0.5;
+			//differentialrobot_proxy->stopBase();
+			//usleep(1000000);  //random wait between 1.5s and 0.1sec
+			if(vrot> 0.5){
+				vrot = 0.5;
+			}
+			qDebug()<< "vrot pos: " << vrot;
 		}
-		if (d<130){
+		if (d<140){
 			vrot= -((d * 1/1000) -0.5);
+			qDebug()<< "vrot neg: " << vrot;
+			
 		}
 		
 	float vadv = exp(-fabs(vrot) * alfa) * 250;
@@ -169,9 +198,24 @@ void SpecificWorker::bug(RoboCompLaser::TLaserData ldata)
 		
 		
 }
+void SpecificWorker::initbug(const RoboCompLaser::TLaserData &ldata)
+{
+	
+	if( !obstacle(ldata))
+		{
+			estado = State::BUG;
+			qDebug()<<"No Hay obstaculo -- INITBUG---> BUG";
+			differentialrobot_proxy->setSpeedBase(0, 0);
+			return;
+		}
+	
+	 differentialrobot_proxy->setSpeedBase(0, -0.4);
+	
+}
 
 
-bool SpecificWorker::targetAtSight(RoboCompLaser::TLaserData ldata)
+
+bool SpecificWorker::targetAtSight(const RoboCompLaser::TLaserData &ldata)
 
 {
 	QPolygonF polygon;
@@ -208,8 +252,8 @@ void SpecificWorker::irA(RoboCompLaser::TLaserData ldata)
 bool SpecificWorker::obstacle(RoboCompLaser::TLaserData ldata)
 {
 	const float threshold = 420;
-	std::sort( ldata.begin()+20, ldata.end()-20, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
-	if( (ldata.data()+20)->dist < threshold){
+	std::sort( ldata.begin()+35, ldata.end()-35, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
+	if( (ldata.data()+35)->dist < threshold){
 		return true;
 	}
 	
