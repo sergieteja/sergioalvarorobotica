@@ -13,6 +13,7 @@ src/CMakeFiles/MyFirstComp.dir/Laser.cpp.o
  src/Laser.h
 src/CMakeFiles/MyFirstComp.dir/MyFirstComp_automoc.cpp.o
  /home/salabeta/robocomp/classes/qlog/qlog.h
+ /home/salabeta/robocomp/classes/simplifypath/simplifyPath.h
  /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/MyFirstComp_automoc.cpp
  /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.h
  /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
@@ -2137,6 +2138,7 @@ src/CMakeFiles/MyFirstComp.dir/home/salabeta/robocomp/classes/rapplication/rappl
 src/CMakeFiles/MyFirstComp.dir/main.cpp.o
  /home/salabeta/robocomp/classes/qlog/qlog.h
  /home/salabeta/robocomp/classes/rapplication/rapplication.h
+ /home/salabeta/robocomp/classes/simplifypath/simplifyPath.h
  /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/commonbehaviorI.h
  /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/config.h
  /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/genericmonitor.h
@@ -3465,6 +3467,7 @@ src/CMakeFiles/MyFirstComp.dir/specificmonitor.cpp.o
  src/ui_mainUI.h
 src/CMakeFiles/MyFirstComp.dir/specificworker.cpp.o
  /home/salabeta/robocomp/classes/qlog/qlog.h
+ /home/salabeta/robocomp/classes/simplifypath/simplifyPath.h
  /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificworker.cpp
  /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/specificworker.h
  /opt/robocomp/include/innermodel/innermodel.h

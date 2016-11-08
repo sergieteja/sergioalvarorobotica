@@ -12,6 +12,7 @@ src/CMakeFiles/MyFirstComp.dir/Laser.cpp.o: src/DifferentialRobot.h
 src/CMakeFiles/MyFirstComp.dir/Laser.cpp.o: src/Laser.h
 
 src/CMakeFiles/MyFirstComp.dir/MyFirstComp_automoc.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
+src/CMakeFiles/MyFirstComp.dir/MyFirstComp_automoc.cpp.o: /home/salabeta/robocomp/classes/simplifypath/simplifyPath.h
 src/CMakeFiles/MyFirstComp.dir/MyFirstComp_automoc.cpp.o: src/MyFirstComp_automoc.cpp
 src/CMakeFiles/MyFirstComp.dir/MyFirstComp_automoc.cpp.o: src/commonbehaviorI.h
 src/CMakeFiles/MyFirstComp.dir/MyFirstComp_automoc.cpp.o: src/genericmonitor.h
@@ -2136,6 +2137,7 @@ src/CMakeFiles/MyFirstComp.dir/home/salabeta/robocomp/classes/rapplication/rappl
 
 src/CMakeFiles/MyFirstComp.dir/main.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/MyFirstComp.dir/main.cpp.o: /home/salabeta/robocomp/classes/rapplication/rapplication.h
+src/CMakeFiles/MyFirstComp.dir/main.cpp.o: /home/salabeta/robocomp/classes/simplifypath/simplifyPath.h
 src/CMakeFiles/MyFirstComp.dir/main.cpp.o: src/commonbehaviorI.h
 src/CMakeFiles/MyFirstComp.dir/main.cpp.o: src/config.h
 src/CMakeFiles/MyFirstComp.dir/main.cpp.o: src/genericmonitor.h
@@ -3464,6 +3466,7 @@ src/CMakeFiles/MyFirstComp.dir/specificmonitor.cpp.o: src/RCISMousePicker.h
 src/CMakeFiles/MyFirstComp.dir/specificmonitor.cpp.o: src/ui_mainUI.h
 
 src/CMakeFiles/MyFirstComp.dir/specificworker.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
+src/CMakeFiles/MyFirstComp.dir/specificworker.cpp.o: /home/salabeta/robocomp/classes/simplifypath/simplifyPath.h
 src/CMakeFiles/MyFirstComp.dir/specificworker.cpp.o: src/specificworker.cpp
 src/CMakeFiles/MyFirstComp.dir/specificworker.cpp.o: src/specificworker.h
 src/CMakeFiles/MyFirstComp.dir/specificworker.cpp.o: /opt/robocomp/include/innermodel/innermodel.h

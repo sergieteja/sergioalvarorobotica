@@ -27,7 +27,9 @@
 
 #include <genericworker.h>
 #include <innermodel/innermodel.h>
+#include <simplifypath/simplifyPath.h>
 #include <qmat/QMatAll>
+
 
 #include <complex>
 
@@ -73,9 +75,11 @@ public:
 	void setPick(const Pick &myPick);
 	void gotoTarget(RoboCompLaser::TLaserData ldata);
 	bool obstacle(RoboCompLaser::TLaserData ldata);
-	void bug(RoboCompLaser::TLaserData ldata);
-	void initbug(const RoboCompLaser::TLaserData& ldata);
+	void bug(RoboCompLaser::TLaserData ldata, const TBaseState& bState );
+	void initbug(const RoboCompLaser::TLaserData& ldata, const TBaseState& bState );
 	bool targetAtSight(const RoboCompLaser::TLaserData& ldata);
+	float distanceToLine(const TBaseState& bState);
+	float obstacleLeft(const TLaserData& tlaser);
 	
 	void stop();
 
@@ -83,8 +87,10 @@ public slots:
 	void compute(); 	
 
 private:
-  Target target;
-  InnerModel *innermodel;
+	QLine2D linea;
+	float distanciaAnterior;
+	Target target;
+	InnerModel *innermodel;
 	
 };
 

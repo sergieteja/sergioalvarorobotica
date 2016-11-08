@@ -34,6 +34,16 @@ IceUtil/IceUtil.h
 QtCore
 -
 
+/home/salabeta/robocomp/classes/simplifypath/simplifyPath.h
+iostream
+-
+cstdlib
+-
+vector
+-
+cmath
+-
+
 /home/salabeta/robocomp/components/sergioalvarorobotica/components/src/CommonBehavior.cpp
 CommonBehavior.h
 -
@@ -260,6 +270,8 @@ specificworker.h
 genericworker.h
 -
 innermodel/innermodel.h
+-
+simplifypath/simplifyPath.h
 -
 qmat/QMatAll
 -
