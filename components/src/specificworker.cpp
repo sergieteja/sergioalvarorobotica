@@ -163,9 +163,9 @@ void SpecificWorker::bug(RoboCompLaser::TLaserData ldata)
 			
 		}
 		
-		float d = -9999;
+		float d = 999999;
 		for(int i=10; i<15; i++)
-			if(ldata[i].dist > d)
+			if(ldata[i].dist < d)
 				d = ldata[i].dist;
 		
 		//float d = ldata[15].dist; 
