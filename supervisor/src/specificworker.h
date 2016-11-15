@@ -37,6 +37,8 @@ public:
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
 	void newAprilTag(const tagsList &tags);
+	enum class State  { INIT, SEARCH, MARK0, MARK1} ;  
+	State estado = State::INIT;
 
 public slots:
 	void compute(); 	

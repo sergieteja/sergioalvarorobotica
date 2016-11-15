@@ -48,16 +48,32 @@ bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params)
 
 void SpecificWorker::compute()
 {
-// 	try
-// 	{
-// 		camera_proxy->getYImage(0,img, cState, bState);
-// 		memcpy(image_gray.data, &img[0], m_width*m_height*sizeof(uchar));
-// 		searchTags(image_gray);
-// 	}
-// 	catch(const Ice::Exception &e)
-// 	{
-// 		std::cout << "Error reading from Camera" << e << std::endl;
-// 	}
+	
+	switch (estado)
+			{
+				case State::INIT:
+					
+					
+				break;
+					
+				case State::SEARCH:	
+					
+					
+					break;
+			
+				case State::MARK0:
+
+					break;
+					
+				case State::MARK1:	
+
+					break;
+			}
+	
+
+	
+	
+	
 }
 
 
