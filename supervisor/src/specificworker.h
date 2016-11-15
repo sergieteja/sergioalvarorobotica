@@ -23,11 +23,6 @@
 */
 
 
-
-
-
-
-
 #ifndef SPECIFICWORKER_H
 #define SPECIFICWORKER_H
 
@@ -41,7 +36,7 @@ public:
 	SpecificWorker(MapPrx& mprx);	
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
-
+	void newAprilTag(const tagsList &tags);
 
 public slots:
 	void compute(); 	

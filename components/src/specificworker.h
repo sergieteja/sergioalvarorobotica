@@ -37,60 +37,64 @@
 
 class SpecificWorker : public GenericWorker
 {
-Q_OBJECT
+	Q_OBJECT
 
-struct Target{
-  bool active =false;
-  mutable QMutex m;
-  QVec pose = QVec::zeros(3);
-  void setActive(bool v){
-    QMutexLocker ml(&m);
-    active=v;
-  }
-  float ang;
-  void copy(float x, float z){
-    QMutexLocker ml(&m);
-    pose[0]=x;
-	pose[1]=0;
-    pose[2]=z;    
-  }
-  QVec getPose(){
-    QMutexLocker ml(&m);
-    return pose;    
-  }
-};
-
-// 
-
-//Estructura de la maquina de estaddos.
-;
-enum class State {INIT,GOTO,BUG,STOP, IDLE, INITBUG};
-State estado = State::INIT;
-
-public:
+	public:
+		SpecificWorker(MapPrx& mprx);	
+		~SpecificWorker();
+		bool setParams(RoboCompCommonBehavior::ParameterList params);
+		void setPick(const Pick &myPick);
+		void go(const string &nodo, const float x, const float y, const float alpha);
+		void turn(const float speed);
+		bool atTarget();
+		void stop();
 	
-	SpecificWorker(MapPrx& mprx);	
-	~SpecificWorker();
-	bool setParams(RoboCompCommonBehavior::ParameterList params);
-	void setPick(const Pick &myPick);
-	void gotoTarget(RoboCompLaser::TLaserData ldata);
-	bool obstacle(RoboCompLaser::TLaserData ldata);
-	void bug(RoboCompLaser::TLaserData ldata, const TBaseState& bState );
-	void initbug(const RoboCompLaser::TLaserData& ldata, const TBaseState& bState );
-	bool targetAtSight(const RoboCompLaser::TLaserData& ldata);
-	float distanceToLine(const TBaseState& bState);
-	float obstacleLeft(const TLaserData& tlaser);
-	
-	void stop();
+	private:
+		struct Target
+		{
+			bool active =false;
+			mutable QMutex m;
+			QVec pose = QVec::zeros(3);
+			void setActive(bool v)
+			{
+				QMutexLocker ml(&m);
+				active=v;
+			}
+			float ang;
+			void copy(float x, float z)
+			{
+				QMutexLocker ml(&m);
+				pose[0]=x;
+				pose[1]=0;
+				pose[2]=z;    
+			}
+			QVec getPose()
+			{
+				QMutexLocker ml(&m);
+				return pose;    
+			}
+		};
 
-public slots:
-	void compute(); 	
+		QLine2D linea;
+		float distanciaAnterior;
+		Target target;
+		InnerModel *innermodel;
+		
+		enum class State {INIT,GOTO,BUG,STOP, IDLE, INITBUG};
+		State estado = State::INIT;
+		
+		void gotoTarget(RoboCompLaser::TLaserData ldata);
+		bool obstacle(RoboCompLaser::TLaserData ldata);
+		void bug(RoboCompLaser::TLaserData ldata, const TBaseState& bState );
+		void initbug(const RoboCompLaser::TLaserData& ldata, const TBaseState& bState );
+		bool targetAtSight(const RoboCompLaser::TLaserData& ldata);
+		float distanceToLine(const TBaseState& bState);
+		float obstacleLeft(const TLaserData& tlaser);
+		
+		void stopLocal();
 
-private:
-	QLine2D linea;
-	float distanciaAnterior;
-	Target target;
-	InnerModel *innermodel;
+	public slots:
+		void compute(); 	
 	
 };
 

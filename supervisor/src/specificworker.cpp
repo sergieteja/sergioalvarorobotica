@@ -61,6 +61,20 @@ void SpecificWorker::compute()
 }
 
 
+////////////////////////////////////////777
+
+void SpecificWorker::newAprilTag(const tagsList& tags)
+{
+
+	//
+	
+}
+
+
+
+
+
+
 
 
 

@@ -75,7 +75,7 @@ void SpecificWorker::compute()
 					break;
 
 				case State::STOP:
-					stop();
+					stopLocal();
 					break;
 				
 			}
@@ -287,7 +287,7 @@ bool SpecificWorker::obstacle(RoboCompLaser::TLaserData ldata)
 	return ( ldata[offset].dist < minDist );
 }
 
-void SpecificWorker::stop()
+void SpecificWorker::stopLocal()
 {
   qDebug("Parado");
   differentialrobot_proxy->setSpeedBase(0,0); 
@@ -321,10 +321,33 @@ float SpecificWorker::obstacleLeft(const TLaserData& tlaser)
 	return min;
 }
 
+////////////////////////////////////////////////7777
+//////////////////////////////////////////////////////
+
 void SpecificWorker::setPick(const Pick& myPick)
 { 
    qDebug() << myPick.x <<":"<< myPick.z ;
    target.copy(myPick.x,myPick.z);
    target.setActive(true); 
    estado=State::INIT;
+}
+
+///////////////7
+
+bool SpecificWorker::atTarget()
+{
+
+}
+void SpecificWorker::go(const string& nodo, const float x, const float y, const float alpha)
+{
+
+}
+void SpecificWorker::turn(const float speed)
+{
+
+}
+void SpecificWorker::stop()
+{
+	
+	
 }

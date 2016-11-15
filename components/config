@@ -1,5 +1,7 @@
 CommonBehavior.Endpoints=tcp -p 11000
 
+# Endpoints for implemented interfaces
+GotoPoint.Endpoints=tcp -p 10090
 
 # Proxies for required interfaces
 LaserProxy = laser:tcp -h localhost -p 10003 

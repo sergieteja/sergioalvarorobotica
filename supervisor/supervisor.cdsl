@@ -1,10 +1,12 @@
 import "/robocomp/interfaces/IDSLs/GotoPoint.idsl";
+import "/robocomp/interfaces/IDSLs/AprilTags.idsl";
 
 Component supervisor
 {
 	Communications 
 	{
 		requires GotoPoint;
+		subscribesTo AprilTags;
 	};
 	language Cpp;
 	gui Qt(QWidget);
