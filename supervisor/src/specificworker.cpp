@@ -23,7 +23,7 @@
 */
 SpecificWorker::SpecificWorker(MapPrx& mprx) : GenericWorker(mprx)
 {
-
+	
 }
 
 /**
@@ -36,44 +36,41 @@ SpecificWorker::~SpecificWorker()
 
 bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params)
 {
-
-
-
-	
+	innermodel = new InnerModel("/home/robocomp/robocomp/files/innermodel/simpleworld.xml");  
+	tag.Init(innermodel);
 	timer.start(Period);
-	
-
 	return true;
 }
 
 void SpecificWorker::compute()
 {
+	int current =0;
+	RoboCompDifferentialRobot::TBaseState bState;
+	differentialrobot_proxy->getBaseState(bState);
+	innermodel->updateTransformValues("base", bState.x,0,bState.z,0 ,bState.alpha,0);
 	
 	switch (estado)
-			{
-				case State::INIT:
-					
-					
-				break;
-					
+			{	
 				case State::SEARCH:	
-					
-					
+					if(tag.getID() == current)
+					{
+						differentialrobot_proxy->stopBase();
+						gotopoint_proxy->go("", tag.getPose().x(), tag.getPose().z(), 0);
+						estado = State::WAIT;
+					}
+					differentialrobot_proxy->setSpeedBase(0,0.3);
 					break;
-			
-				case State::MARK0:
-
-					break;
+				case State::WAIT:
+					if( gotopoint_proxy->atTarget() == true)
+					{
+						differentialrobot_proxy->stopBase();
+						estado = State::SEARCH;
+						current = current++%4;
+					}
 					
-				case State::MARK1:	
-
+					
 					break;
 			}
-	
-
-	
-	
-	
 }
 
 
@@ -81,10 +78,10 @@ void SpecificWorker::compute()
 
 void SpecificWorker::newAprilTag(const tagsList& tags)
 {
-
-	//
+	tag.copy(tags.front().tx, tags.front().tz, tags.front().id);
 	
 }
+
 
 
 

@@ -1,7 +1,7 @@
-CommonBehavior.Endpoints=tcp -p 11000
+CommonBehavior.Endpoints=tcp -p 11001
 
 # Endpoints for implemented interfaces
-GotoPoint.Endpoints=tcp -p 10090
+GotoPoint.Endpoints=tcp -p 11253
 
 # Proxies for required interfaces
 LaserProxy = laser:tcp -h localhost -p 10003 
@@ -12,7 +12,6 @@ RCISMousePickerTopic.Endpoints=tcp -p 10015
 
 # This property is used by the clients to connect to IceStorm.
 TopicManager.Proxy=IceStorm/TopicManager:default -p 9999
-
 
 Ice.Warn.Connections=0
 Ice.Trace.Network=0

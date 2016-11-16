@@ -332,7 +332,7 @@ void SpecificWorker::setPick(const Pick& myPick)
    estado=State::INIT;
 }
 
-///////////////7
+//////////////////////////////////////////////
 
 bool SpecificWorker::atTarget()
 {

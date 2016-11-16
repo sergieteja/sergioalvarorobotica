@@ -37,15 +37,51 @@ public:
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
 	void newAprilTag(const tagsList &tags);
-	enum class State  { INIT, SEARCH, MARK0, MARK1} ;  
-	State estado = State::INIT;
+	enum class State  { SEARCH, WAIT} ;  
+	State estado = State::SEARCH;
+	InnerModel *innermodel;
 
 public slots:
 	void compute(); 	
 
 private:
 	
+	struct Target
+		{
+			bool active =false;
+			mutable QMutex m;
+			QVec pose = QVec::zeros(3);
+			int ident;
+			InnerModel *inner;
+			
+			void Init (InnerModel*innermodel){
+				inner =innermodel;
+			}
+
+			void setActive(bool v)
+			{
+				QMutexLocker ml(&m);
+				active=v;
+			}
+			float ang;
+			void copy(float x, float z, int id)
+			{
+				QMutexLocker ml(&m); 
+				qDebug()<<"Posicion antes"<< x << z<<id;
+				pose = inner->transform("world",QVec::vec3(x,0,z) ,"base");
+				qDebug()<<"Posicion despues" <<pose.x()<<pose.z();
+				ident=id;
+				
+			}
+			QVec getPose()
+			{
+				QMutexLocker ml(&m);
+				return pose;    
+			}
+		};
+		Target tag;
 };
+
 
 #endif
 
