@@ -78,7 +78,7 @@ void SpecificWorker::compute()
 						qDebug()<<"Current"<<current;
 						sleep(3);
 					}
-					else if( tag.hasChanged())
+					else if( tag.hasChanged() && tag.getID() == current)
 					{
 						
 						gotopoint_proxy->go("", tag.getPose().x(), tag.getPose().z(), 0);

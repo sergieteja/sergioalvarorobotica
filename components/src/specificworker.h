@@ -24,13 +24,10 @@
 
 #ifndef SPECIFICWORKER_H
 #define SPECIFICWORKER_H
-
 #include <genericworker.h>
 #include <innermodel/innermodel.h>
 #include <simplifypath/simplifyPath.h>
 #include <qmat/QMatAll>
-
-
 #include <complex>
 
 

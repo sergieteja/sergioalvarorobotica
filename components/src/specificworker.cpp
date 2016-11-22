@@ -92,16 +92,12 @@ void SpecificWorker::compute()
 
 void SpecificWorker::gotoTarget(RoboCompLaser::TLaserData ldata)
 {
-	target.getPose().print("target");
-	
 	QVec tr = innermodel->transform ( "base",target.getPose(),"world" );
-	tr.print("tr");
 	float angle = atan2 ( tr.x(),tr.z() );
 	float distance = tr.norm2();
 	//Comprobar si esta en el objetivo
 	
-	qDebug() << "Distancia"<<distance;
-	if( distance < 500) 
+	if( distance <= 500) 
 	{
 		target.setActive(false);
 		qDebug() << "FINALIZADO: GOTO A INIT";
@@ -117,7 +113,7 @@ void SpecificWorker::gotoTarget(RoboCompLaser::TLaserData ldata)
 		return;
 	}
  
-    //std::sort( ldata.begin()+20, ldata.end()-20, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
+    std::sort( ldata.begin()+20, ldata.end()-20, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
 	
 	//controlador
 	if ( abs ( angle) > 0.05 )
@@ -131,10 +127,7 @@ void SpecificWorker::gotoTarget(RoboCompLaser::TLaserData ldata)
 		
 	}catch ( const Ice::Exception &ex ) {  std::cout << ex << std::endl; }
 	
-	
 }
-
-
 
 
 void SpecificWorker::bug(RoboCompLaser::TLaserData ldata,const TBaseState& bState )
@@ -167,30 +160,6 @@ void SpecificWorker::bug(RoboCompLaser::TLaserData ldata,const TBaseState& bStat
 			return;
 			
 		}
-		
-		/*
-		float d = 999999;
-		for(int i=10; i<15; i++)
-			if(ldata[i].dist < d)
-				d = ldata[i].dist;
-		
-		//float d = ldata[15].dist; 
-		if (d>160)
-		{
-			vrot = (d * 1./500 )- 0.5;
-			//differentialrobot_proxy->stopBase();
-			//usleep(1000000);  //random wait between 1.5s and 0.1sec
-			if(vrot> 0.5){
-				vrot = 0.5;
-			}
-			qDebug()<< "vrot pos: " << vrot;
-		}
-		if (d<140){
-			vrot= -((d * 1/1000) -0.5);
-			qDebug()<< "vrot neg: " << vrot;
-			
-		}
-		*/
 		
 		float k=0.1;  // pendiente de la sigmoide
 		float vrot =  -((1./(1. + exp(-k*(dist - 450.))))-1./2.);		//sigmoide para meter vrot entre -0.5 y 0.5. La k ajusta la pendiente.
@@ -283,7 +252,7 @@ void SpecificWorker::irA(RoboCompLaser::TLaserData ldata)
 bool SpecificWorker::obstacle(RoboCompLaser::TLaserData ldata)
 {
 	const int offset = 30;
-	const int minDist = 280;
+	const int minDist = 350;
 	
 	//sort laser data from small to large distances using a lambda function.
 	std::sort ( ldata.begin() + offset, ldata.end()- offset, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ){	return a.dist < b.dist;});
@@ -344,7 +313,6 @@ bool SpecificWorker::atTarget()
 }
 void SpecificWorker::go(const string& nodo, const float x, const float y, const float alpha)
 {
-
 	qDebug()<<"LLegando al go que llama al comtrolador desde el supervisor" << x << y;
 	target.copy(x,y);
 	target.setActive(true);
