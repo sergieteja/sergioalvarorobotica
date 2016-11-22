@@ -92,13 +92,16 @@ void SpecificWorker::compute()
 
 void SpecificWorker::gotoTarget(RoboCompLaser::TLaserData ldata)
 {
+	target.getPose().print("target");
 	
 	QVec tr = innermodel->transform ( "base",target.getPose(),"world" );
-
+	tr.print("tr");
 	float angle = atan2 ( tr.x(),tr.z() );
 	float distance = tr.norm2();
 	//Comprobar si esta en el objetivo
-	if( distance < 280) 
+	
+	qDebug() << "Distancia"<<distance;
+	if( distance < 500) 
 	{
 		target.setActive(false);
 		qDebug() << "FINALIZADO: GOTO A INIT";
@@ -140,6 +143,7 @@ void SpecificWorker::bug(RoboCompLaser::TLaserData ldata,const TBaseState& bStat
 	const float alpha = log ( 0.1 ) /log ( 0.3 ); //amortigua /corte
 	float dist = obstacleLeft(ldata);
 	float diffToline = distanceToLine(bState);
+	
 	
 		if(targetAtSight(ldata)){
 			estado  =  State::GOTO;
@@ -191,7 +195,6 @@ void SpecificWorker::bug(RoboCompLaser::TLaserData ldata,const TBaseState& bStat
 		float k=0.1;  // pendiente de la sigmoide
 		float vrot =  -((1./(1. + exp(-k*(dist - 450.))))-1./2.);		//sigmoide para meter vrot entre -0.5 y 0.5. La k ajusta la pendiente.
 		float vadv = 350 * exp ( - ( fabs ( vrot ) * alpha ) ); 		//gaussiana para amortiguar la vel. de avance en funcion de vrot
-		qDebug() << vrot << vadv;
 		//vrot *= 0.3;
 		differentialrobot_proxy->setSpeedBase ( vadv ,vrot );
 }
@@ -336,11 +339,16 @@ void SpecificWorker::setPick(const Pick& myPick)
 
 bool SpecificWorker::atTarget()
 {
-
+	return !target.isActive();
+	
 }
 void SpecificWorker::go(const string& nodo, const float x, const float y, const float alpha)
 {
 
+	qDebug()<<"LLegando al go que llama al comtrolador desde el supervisor" << x << y;
+	target.copy(x,y);
+	target.setActive(true);
+	estado=State::INIT;
 }
 void SpecificWorker::turn(const float speed)
 {

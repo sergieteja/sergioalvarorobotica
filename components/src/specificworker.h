@@ -68,6 +68,14 @@ class SpecificWorker : public GenericWorker
 				pose[1]=0;
 				pose[2]=z;    
 			}
+			
+			bool isActive()
+			{
+				QMutexLocker ml(&m);
+				return active;
+			}
+				
+			
 			QVec getPose()
 			{
 				QMutexLocker ml(&m);

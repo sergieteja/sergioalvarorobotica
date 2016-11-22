@@ -40,6 +40,7 @@ public:
 	enum class State  { SEARCH, WAIT} ;  
 	State estado = State::SEARCH;
 	InnerModel *innermodel;
+	int current =0;
 
 public slots:
 	void compute(); 	
@@ -51,6 +52,7 @@ private:
 			bool active =false;
 			mutable QMutex m;
 			QVec pose = QVec::zeros(3);
+			QVec poseAnt = QVec::zeros(3);
 			int ident;
 			InnerModel *inner;
 			
@@ -64,15 +66,32 @@ private:
 				active=v;
 			}
 			float ang;
+			
+			int getID()
+			{
+				QMutexLocker ml(&m);
+				return ident;
+			}
+			
 			void copy(float x, float z, int id)
 			{
 				QMutexLocker ml(&m); 
-				qDebug()<<"Posicion antes"<< x << z<<id;
-				pose = inner->transform("world",QVec::vec3(x,0,z) ,"base");
-				qDebug()<<"Posicion despues" <<pose.x()<<pose.z();
+				//qDebug()<<"Posicion antes"<< x << z<<id;
+				pose = inner->transform("world",QVec::vec3(x,0,z) ,"rgbd");
+				//qDebug()<<"Posicion despues" <<pose.x()<<pose.z();
 				ident=id;
 				
 			}
+			bool hasChanged()
+			{
+				 if( (pose-poseAnt).norm2() > 100)
+				 {
+					 poseAnt = pose;
+					 return true;
+				 }
+				 return false;
+			}
+			
 			QVec getPose()
 			{
 				QMutexLocker ml(&m);

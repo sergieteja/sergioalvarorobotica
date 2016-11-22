@@ -44,7 +44,7 @@ bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params)
 
 void SpecificWorker::compute()
 {
-	int current =0;
+	
 	RoboCompDifferentialRobot::TBaseState bState;
 	differentialrobot_proxy->getBaseState(bState);
 	innermodel->updateTransformValues("base", bState.x,0,bState.z,0 ,bState.alpha,0);
@@ -52,35 +52,51 @@ void SpecificWorker::compute()
 	switch (estado)
 			{	
 				case State::SEARCH:	
+					
+					qDebug()<<"SEARH";
+					qDebug()<<"Current en el search"<<current;
+					
 					if(tag.getID() == current)
 					{
 						differentialrobot_proxy->stopBase();
 						gotopoint_proxy->go("", tag.getPose().x(), tag.getPose().z(), 0);
 						estado = State::WAIT;
+						qDebug()<<"De SEARH  --> wait";
 					}
+					qDebug()<<"Girando";
 					differentialrobot_proxy->setSpeedBase(0,0.3);
 					break;
 				case State::WAIT:
+					qDebug()<<"Entrando en wait"<<gotopoint_proxy->atTarget();
+					
 					if( gotopoint_proxy->atTarget() == true)
 					{
 						differentialrobot_proxy->stopBase();
 						estado = State::SEARCH;
-						current = current++%4;
+						qDebug()<<"De WAIT  --> SEARCH";
+						current = (current+1)%4;
+						qDebug()<<"Current"<<current;
+						sleep(3);
 					}
-					
+					else if( tag.hasChanged())
+					{
+						
+						gotopoint_proxy->go("", tag.getPose().x(), tag.getPose().z(), 0);
+					}
 					
 					break;
 			}
 }
 
 
-////////////////////////////////////////777
-
+////////////////////////////////////////////////
 void SpecificWorker::newAprilTag(const tagsList& tags)
 {
+	qDebug()<<"LLegando las april tags" << tags.front().tx << tags.front().tz;
 	tag.copy(tags.front().tx, tags.front().tz, tags.front().id);
 	
 }
+
 
 
 
