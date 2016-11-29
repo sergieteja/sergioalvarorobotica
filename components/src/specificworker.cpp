@@ -113,7 +113,7 @@ void SpecificWorker::gotoTarget(RoboCompLaser::TLaserData ldata)
 		return;
 	}
  
-    std::sort( ldata.begin()+20, ldata.end()-20, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
+    //std::sort( ldata.begin()+20, ldata.end()-20, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
 	
 	//controlador
 	if ( abs ( angle) > 0.05 )
@@ -202,7 +202,7 @@ bool SpecificWorker::targetAtSight(const RoboCompLaser::TLaserData &ldata)
 	}
 	QVec targetInRobot = innermodel->transform("base", target.getPose(), "world");
 	float dist = targetInRobot.norm2();
-	int veces = int(dist / 200);  //number of times the robot semilength fits in the robot-to-target distance
+	int veces = int(dist / 150);  //number of times the robot semilength fits in the robot-to-target distance
 	float landa = 1./veces;
 	
 	QList<QPoint> points;
@@ -215,10 +215,10 @@ bool SpecificWorker::targetAtSight(const RoboCompLaser::TLaserData &ldata)
 		QVec pointW = innermodel->transform("world", point ,"base");
 		points << QPoint(pointW.x(), pointW.z());
 		
-		pointW = innermodel->transform("world", point - QVec::vec3(200,0,0), "base");
+		pointW = innermodel->transform("world", point - QVec::vec3(230,0,0), "base");
 		points << QPoint(pointW.x(), pointW.z());
 		
-		pointW = innermodel->transform("world", point + QVec::vec3(200,0,0), "base");
+		pointW = innermodel->transform("world", point + QVec::vec3(230,0,0), "base");
 		points << QPoint(pointW.x(), pointW.z());
 		
 	}
