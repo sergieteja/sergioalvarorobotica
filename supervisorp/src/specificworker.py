@@ -20,6 +20,9 @@
 import sys, os, Ice, traceback, time
 import networkx as nx
 
+import matplotlib.pyplot as plt
+
+
 from PySide import *
 from genericworker import *
 
@@ -43,7 +46,7 @@ Ice.loadSlice(preStr+"DifferentialRobot.ice")
 from RoboCompDifferentialRobot import *
 
 
-
+g = nx.Graph()
 
 
 
@@ -57,35 +60,46 @@ class SpecificWorker(GenericWorker):
 
 	def setParams(self, params):
 
-
 		return True
-
 	@QtCore.Slot()
 	
 	
-	def grafo(self):
-		
+	def grafo(self):	
 		#creacion del grafo
-		with open ('puntos.txt','r') as f:
-			g=nx.Graph()
-			for line in  f:
-				linea = line.split()
-				if linea[0] == "N" :
-					g.add_node(linea[1],x=linea[2], y =linea[3], tipo=linea[4])
-				elif linea[0] == "E":
-					g.add_edge(linea[1],linea[2])
+		posiciones = {}
+		with open("puntos.txt","r") as f:
+			for line in f:
+				l=line.strip("\n").split()
+				if l[0]=="N":
+					g.add_node(l[1], x= float(l[2]),y=float(l[3]),name="")
+					posiciones[l[1]] = (float(l[2]),float(l[3]))
+				else:
+					g.add_edge(l[1], l[2])
+
+		print posiciones
+		img = plt.imread("plano.png")
+		plt.imshow(img, extent = [-12284,25600,-3840,9023])
+		nx.draw_networkx(g, posiciones)
 		
-		print g.nodes()
 		
-		print nx.shortest_path(g,source="7", target="11") 
+		print "Haciendo camino minimo"
+		print nx.shortest_path(g,source="1", target="6") 
+		
+		plt.show()
 		
 	
 	def compute(self):
 		print 'SpecificWorker.compute...'
 		
 		return True
-
-
-
-
-
+	
+	def nodoCercano(self):
+		
+		bState = RoboCompDifferentialRobot.Bstate()
+		differentialrobot_proxy.getBaseState(bState)
+		r = (bState.x , bState.z)
+		dist = lambda r,n: (r[0]-n[0])**2+(r[1]-n[1])**2
+		#funcion que devuele el nodo mas cercano al robot
+		return  sorted(list (( n[0] ,dist(n[1],r)) for n in posiciones.items() ), key=lambda s: s[1])[0][0]
+	
+	
