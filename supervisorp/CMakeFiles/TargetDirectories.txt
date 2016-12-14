@@ -1,3 +1,2 @@
 /home/robocomp/robocomp/components/sergioalvarorobotica/supervisorp/CMakeFiles/edit_cache.dir
 /home/robocomp/robocomp/components/sergioalvarorobotica/supervisorp/CMakeFiles/rebuild_cache.dir
-/home/robocomp/robocomp/components/sergioalvarorobotica/supervisorp/CMakeFiles/ui_mainUI.dir

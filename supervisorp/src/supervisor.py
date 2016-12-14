@@ -114,7 +114,7 @@ class CommonBehaviorI(RoboCompCommonBehavior.CommonBehavior):
 
 
 if __name__ == '__main__':
-	app = QtGui.QApplication(sys.argv)
+	app = QtCore.QCoreApplication(sys.argv)
 	params = copy.deepcopy(sys.argv)
 	if len(params) > 1:
 		if not params[1].startswith('--Ice.Config='):

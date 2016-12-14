@@ -110,19 +110,6 @@ depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named ui_mainUI
-
-# Build rule for target.
-ui_mainUI: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ui_mainUI
-.PHONY : ui_mainUI
-
-# fast build rule for target.
-ui_mainUI/fast:
-	$(MAKE) -f CMakeFiles/ui_mainUI.dir/build.make CMakeFiles/ui_mainUI.dir/build
-.PHONY : ui_mainUI/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -131,7 +118,6 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ui_mainUI"
 .PHONY : help
 
 

@@ -18,14 +18,9 @@
 
 import sys
 from PySide import *
-try:
-	from ui_mainUI import *
-except:
-	print "Can't import UI file. Did you run 'make'?"
-	sys.exit(-1)
 
 
-class GenericWorker(QtGui.QWidget):
+class GenericWorker(QtCore.QObject):
 	kill = QtCore.Signal()
 
 
@@ -36,9 +31,6 @@ class GenericWorker(QtGui.QWidget):
 		self.gotopoint_proxy = mprx["GotoPointProxy"]
 		self.differentialrobot_proxy = mprx["DifferentialRobotProxy"]
 
-		self.ui = Ui_guiDlg()
-		self.ui.setupUi(self)
-		self.show()
 		
 		
 		self.mutex = QtCore.QMutex(QtCore.QMutex.Recursive)
