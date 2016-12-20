@@ -50,14 +50,13 @@ g = nx.Graph()
 class SpecificWorker(GenericWorker):
 	
 	
-	ruta = [71]
+	ruta = [10,61]
 	estado = "INIT"
-	posiciones = {}
-	listanodos = []
+	posiciones = {} #grafo donde estan todos los puntos de la sala
+	listanodos = [] #lista de nodos que tenemos que seguir a partir del nodo cercano para ir al punto de la ruta
 	
 	def __init__(self, proxy_map):
 		super(SpecificWorker, self).__init__(proxy_map)
-		
 		self.timer.timeout.connect(self.compute)
 		self.Period = 2000
 		self.timer.start(self.Period)
@@ -67,8 +66,6 @@ class SpecificWorker(GenericWorker):
 	def setParams(self, params):
 
 		return True
-	
-	
 	
 	def init (self, lista):
 		print "Holaa init"
@@ -92,9 +89,13 @@ class SpecificWorker(GenericWorker):
 	def pi (self, lista):
 		print "De TI ---> PI"
 		if len(self.listanodos) == 0:
-			self.estado = "PI"
+			self.estado = "TI"
 			return
 		nodoactual = self.listanodos[0]
+		
+		
+		print "Nodo actual" + str(nodoactual) 
+		
 		self.listanodos.pop(0)
 		try:
 			print "Posicion del robot ", self.differentialrobot_proxy.getBaseState(), " y la del target ", self.posiciones[nodoactual][0], self.posiciones[nodoactual][1]
@@ -135,11 +136,11 @@ class SpecificWorker(GenericWorker):
 		print self.posiciones
 		img = plt.imread("plano.png")
 		plt.imshow(img, extent = [-12284,25600,-3840,9023])
-		#x.draw_networkx(g, self.posiciones)
+		nx.draw_networkx(g, self.posiciones)
 		#print "Haciendo camino minimo"
 		#nx.shortest_path(g,source= str(self.nodoCercano()), target=str(self.ruta[0])) 
 		#print nx.shortest_path(g,source="1", target="6") 
-		#plt.show()
+		plt.show()
 		
 		
 		
